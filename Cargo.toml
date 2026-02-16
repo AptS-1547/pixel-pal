@@ -1,0 +1,16 @@
+[package]
+name = "pixel-pal"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = "0.18"
+log = "0.4"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+
+[package.metadata.bevy]
+includeAssets = true
