@@ -45,19 +45,19 @@ fn spawn_pet_sprite(
     asset_server: &AssetServer,
     textures: &mut Assets<TextureAtlasLayout>,
 ) {
-    let layout = TextureAtlasLayout::from_grid(UVec2::splat(128), 4, 6, None, None);
+    let layout = TextureAtlasLayout::from_grid(UVec2::new(204, 218), 4, 6, None, None);
     let texture_atlas_layout = textures.add(layout);
     let animation_indices = AnimationIndices { first: 0, last: 3 };
 
     commands.spawn((
         Sprite::from_atlas_image(
-            asset_server.load("textures/robo.png"),
+            asset_server.load("textures/robo_1547.png"),
             TextureAtlas {
                 layout: texture_atlas_layout,
                 index: animation_indices.first,
             },
         ),
-        Transform::from_xyz(0.0, 0.0, 0.0),
+        Transform::from_xyz(0.0, 0.0, 0.0).with_scale(Vec3::splat(0.6)),
         animation_indices,
         AnimationTimer(Timer::from_seconds(0.15, TimerMode::Repeating)),
         crate::pet::Pet::new(),
