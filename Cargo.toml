@@ -11,6 +11,8 @@ log = "0.4"
 opt-level = "z"
 lto = true
 codegen-units = 1
+panic = "abort"
+strip = false
 
 [package.metadata.bevy]
 includeAssets = true
